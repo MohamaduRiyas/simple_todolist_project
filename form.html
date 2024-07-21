@@ -1,32 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Form</title>
-</head>
-<body>
+<input id="input">
+<button onclick="list()">ADD</button>
 
-    <h1>STUDENT FORM</h1>
-
-    <div>
-        <h1 >Name</h1><input id="input">
-    </div>
-
-    <script>
-
-        var input = document.getElementById("input");
+<ul id="unorder">
+    <li>Hello
+    <button onclick="deleteitem(event)">Delete</button>
+</li>
+</ul>
 
 
-        function form(){
+<script>
 
-                input = input.textContent = input.value;
+    var ul = document.getElementById("unorder");
+    var input = document.getElementById("input")
 
-        }
+
+    function list(){
+
+        var listitem = document.createElement("li");
+
+        listitem.innerHTML = input.value + "<button onclick='deleteitem(event)'>Delete</button>";
+
+        ul.append(listitem)
+
+    }
+
+    function deleteitem(event){
+
+        event.target.parentElement.remove()
 
 
-    </script>
+    }
 
-    
-</body>
-</html>
+</script>
